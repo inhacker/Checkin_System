@@ -1,0 +1,23 @@
+<h1>Listing Parents...</h1>
+ 
+<table class="tables">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+  </tr>
+ 
+  <% @parents.each do |parent| %>
+    <tr>
+      <td><%= parent.f_name %></td>
+      <td><%= parent.l_name %></td>
+		  <td><%= button_to 'Show More', parent, method: :get%></td>
+		  <td><%= button_to 'Edit', edit_parent_path(parent), method: :get %></td>
+		  <td><%= button_to 'Delete', parent, method: :delete, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+    </tr>
+  <% end %>
+	
+</table>
+
+<div class="change_links">
+	<%= button_to 'New Parent', new_parent_path, method: :get %>
+</div>

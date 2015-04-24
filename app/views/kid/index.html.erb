@@ -1,0 +1,34 @@
+<h1>Listing kids</h1>
+
+<table class = "tables">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+		  <th>First Name</th>
+		  <th>Middle Name</th>
+		  <th>Last Name</th>
+		  <th>Group</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kids.each do |kid| %>
+      <tr>
+				<td colspan="3"></td>
+				<td><%= kid.f_name %></td>
+				<td><%= kid.m_name %></td>
+				<td><%= kid.l_name %></td>
+				<td><%= kid.group %></td>
+        <td><%= button_to 'Show', kid, method: :get%></td>
+        <td><%= button_to 'Edit', edit_kid_path(kid), method: :get %></td>
+				<td><%= button_to 'Edit Parents', edit_parents_path(kid), method: :get %></td>
+        <td><%= button_to 'Destroy', kid, method: :delete, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="change_link">
+<%= button_to 'New Kid', new_kid_path, method: :get %>
+</div>

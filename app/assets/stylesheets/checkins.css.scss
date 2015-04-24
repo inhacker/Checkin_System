@@ -1,0 +1,74 @@
+// Place all the styles related to the checkins controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#parent-search-result{
+	position: absolute;
+	width: 235px;
+	background-color: white;
+	margin-top: -1px;
+	border-right: 1px gray solid;
+	border-left: 1px gray solid;
+
+	ul{
+		list-style-type: none;
+		margin:0;
+		padding:0;
+
+		li{
+		    border-bottom: 1px solid gray;
+		    height: 40px;
+		    line-height: 40px;
+		    cursor: pointer;
+		    padding-left: 20px;
+		}
+
+		li:hover{
+			background:gray;
+		}
+	}
+}
+
+#checkin-children{
+	float: right; 
+	background-color: white;
+	border-left:1px solid black; 
+	border-right:1px solid black; 
+	width: 500px;
+
+	ul{
+		padding:0;
+		margin:0;
+		list-style-type: none;
+
+		li{
+			height: 40px;
+			line-height: 40px;
+			padding-left:20px;
+			border-bottom:1px solid gray;
+
+		}
+
+		li:hover{
+			background:gray;
+		}
+		li:first-child{
+			border-top:1px solid gray;
+		}
+
+		li.active{
+			background-color:#A0E3A0;
+		}
+
+		li.checked-in{
+			background-color:#328A32;
+		}
+	}
+}
+
+#checkin-btn{
+	float:right;
+	clear: right;
+}
+

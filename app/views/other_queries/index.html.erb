@@ -1,0 +1,86 @@
+<ul class="accordion-tabs-minimal">
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link is-active">Checked In</a>
+    <div class="tab-content">
+      <p>
+        <% if @kids_checked_in.size > 0 %>
+        <h1 id='header'>Children Currently Checked In:</h1>
+
+        <table>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Group</th>
+          </tr>
+
+          <% @kids.each do |kid| %>
+            <% if (kid.is_checked_in == "true") %>
+              <tr>
+                <td><%= kid.f_name %></td>
+                <td><%= kid.l_name %></td>
+                <td><%= kid.group %></td>
+              </tr>
+            <% end %>
+          <% end %>
+	
+        </table>
+        <% end %>
+        <% else %>
+          <h1>There are currently no children checked in</h1>
+      </p>
+    </div>
+  </li>
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link">Groups</a>
+    <div class="tab-content">
+      <p>
+        <h1>For group queries:</h1>
+        <table>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Group</th>
+          </tr>
+
+          <% @kids.each do |kid| %>
+            <% if (kid.group == "toddler") %>
+              <tr>
+                <td><%= kid.f_name %></td>
+                <td><%= kid.l_name %></td>
+                <td><%= kid.group %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </table>
+      </p>
+    </div>
+  </li>
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link">Attendance</a>
+    <div class="tab-content">
+      <p>
+        <h1>Attendance In The Last Three Months</h1>
+      </p>    
+    </div>
+  </li>
+  <li class="tab-header-and-content">
+    <a href="#" class="tab-link">Last Item</a>
+    <div class="tab-content">
+      <p>
+        <h1>Birthdays this month!</h1>
+      </p>
+    </div>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+<p>Find me in app/views/other_queries/index.html.erb</p>
+

@@ -1,0 +1,57 @@
+<h1>Editing kid</h1>
+
+<%= form_for(@kid) do |f| %>
+  <% if @kid.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@kid.errors.count, "error") %> prohibited this kid from being saved:</h2>
+
+      <ul>
+      <% @kid.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+	<div class="field">
+		<%= f.label :f_name, "First Name"%><br>
+    <%= f.text_field :f_name %>
+	</div>
+	<div class="field">
+		<%= f.label :m_name, "Middle Name"%><br>
+    <%= f.text_field :m_name %>
+	</div>
+	<div class="field">
+		<%= f.label :l_name, "Last Name" %><br>
+    <%= f.text_field :l_name %>
+	</div>
+	<div class="field">
+		<%= f.label :dob, "Date of Birth" %><br>
+    <%= f.date_field :dob %>
+	</div>
+	<div class="field">
+		<%= f.label :first_date_attended, "First Date Attended" %><br>
+    <%= f.date_field :first_date_attended %>
+	</div>
+	<div class="field">
+		<%= f.label :gender %><br>
+		<%= f.select(:gender, Kid.genders.keys.map {|gender| [gender.titleize,gender]}) %>
+	</div>
+	<div class="field">
+		<%= f.label :group %><br>
+		<%= f.select(:group, Kid.groups.keys.map {|group| [group.titleize,group]}) %>
+	</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<div class="change_links">
+<%= button_to 'Show', @kid, method: :get%> 
+</div>
+<div class="change_links">
+<%= button_to 'Back', kid_index_path, method: :get %>
+</div>

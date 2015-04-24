@@ -1,0 +1,12 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login-panel{
+	@include span-columns(4);
+	@include shift(4);
+
+	button{
+		background-color: #477dca;	
+	}
+}

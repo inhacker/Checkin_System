@@ -1,0 +1,34 @@
+<h1>Listing Allergies</h1>
+
+<table class="tables">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+		  <th>Name</th>
+		  <th>Description</th>
+		  <th>Medicines</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @allergies.each do |allergy| %>
+		<%	if(allergy.name != "") %> 
+      <tr>
+				<td colspan="3"></td>
+				<td><%= allergy.name %></td>
+				<td><%= allergy.description %></td>
+				<td><%= allergy.medicine %></td>
+        <td><%= button_to 'Show', allergy, method: :get %></td>
+        <td><%= button_to 'Edit', edit_allergy_path(allergy), method: :get %></td>
+        <td><%= button_to 'Delete', allergy, method: :delete, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+      </tr>
+			<%end%>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="change_links">
+	<%= button_to 'New Allergy', new_allergy_path, method: :get %>
+</div>

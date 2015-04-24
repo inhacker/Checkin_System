@@ -1,0 +1,21 @@
+
+<%= form_for(:session, url: login_path)	do |f| %>
+	<div class="container">
+		<div class="login-panel">
+			<h1>Login</h1>
+			<paper-input-decorator label="Email" floatingLabel>
+				<%= f.email_field :email %>
+			</paper-input-decorator>
+
+			<paper-input-decorator label="Password" floatingLabel>
+				<%= f.password_field :password %>
+			</paper-input-decorator>
+
+
+			<button type="submit" is="paper-button-submit">Log in</button>
+			
+			<p>New user? <%= link_to "Sign up here!", signup_path %></a></p>			
+		</div>
+	</div>
+<% end %>
+

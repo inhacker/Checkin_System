@@ -1,0 +1,2 @@
+module OtherQueriesHelper
+end

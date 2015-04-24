@@ -1,0 +1,26 @@
+<h1>Listing Attendance</h1>
+
+<table class = "tables">
+  <thead>
+    <tr>
+		  <th>Dates</th>
+		  <th>Kid</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attendances.each do |attendance| %>
+      <tr>
+				<td><%= attendance.date %></td>
+				<td><%= Attendance.find_by(id: attendance.kid_id) %></td>
+        <td><%= button_to 'Show', attendance, method: :get %></td>
+        <td><%= button_to 'Delete', attendance, method: :delete, data: { confirm: 'Are you sure?' }, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="change_link">
+	<%= button_to 'New Kid', new_kid_path, method: :get %>
+</div>

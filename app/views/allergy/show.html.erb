@@ -1,0 +1,26 @@
+<h1>Show Allergy</h1>
+
+<table class="tables">
+  <tr>
+    <th>Name</th>
+		<th>Description</th>
+    <th>Medicine</th>
+		<th>Children with Allergy</th>
+  </tr>
+ 
+  <tr>
+    <td><%= @allergy.name %></td>
+    <td><%= @allergy.description %></td>
+    <td><%= @allergy.medicine %></td>
+		<% Allergic.where(:allergy_id => @allergy.id).each do |a|%>
+		<td><%= Kid.find_by(id: a.kid_id).f_name%></td>
+		<% end %>
+  </tr>
+</table>
+
+<div class="change_links">
+	<%= button_to 'Edit', edit_allergy_path(@allergy), method: :get %> 
+</div>
+<div class="change_links">
+	<%= button_to 'Back', allergy_index_path, method: :get %>
+</div>

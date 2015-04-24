@@ -1,0 +1,84 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		var add = $("#add_parent");
+		var remove = $("#remove_parent");
+		var primary = $("#primary_parent");
+		$(add).hide();
+		$(remove).hide();
+		$(primary).hide();
+
+		$("#button_add").click(function(e) { $("#add_parent").toggle(); });
+		$("#button_remove").click(function(e) { $("#remove_parent").toggle(); });
+		$("#button_primary").click(function(e) { $("#primary_parent").toggle(); });
+		
+
+	});
+</script>	
+<h1>Current Parents</h1>
+<table class="tables">
+		<thead>
+			<tr>
+				<th>Kid Name</th>
+				<th>Kid Last Name</th>
+				<th>Parent Name</th>
+				<th>Parent Last Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @kid.parents.each do |f| %>
+				<tr>				
+						<td><%= @kid.f_name %></td>
+						<td><%= @kid.l_name %></td>
+						<td><%= f.f_name %></td>
+						<td><%= f.l_name %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<br /><br />
+<input type="button" id="button_primary" value="Change Primary Parent"/>
+<div id="primary_parent">
+	<p>Select the new primary parent</p>
+	<select id="kid_parents">
+		<% @kid.parents.each do |p| %>
+			<option value="<%= p.id %>"><%= p.f_name + " " + p.l_name %></option>
+		<% end %>
+	</select>
+
+	<button id="primary_parent_btn">Change</button>
+</div>
+
+<br/><br/>
+<input type="button" id="button_add" value="Add Parent"/>
+<div id="add_parent">
+	<p>Add a parent to the kid</p>
+	<select id="all_parents">
+		<% Parent.all.each do |p| %>
+			<option value="<%= p.id %>"><%= p.f_name + " " + p.l_name %></option>
+		<% end %>
+	</select>
+	<button id="add_parent_btn">Add</button>
+</div>
+
+<br/><br/>
+
+<input type="button" id="button_remove" value="Remove Parent"/>
+<div id="remove_parent">
+	<table>
+		<thead>
+			<tr>
+				<th>Parent Name</th>
+				<th>Parent Last Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @kid.families.each do |f| %>
+				<tr>				
+						<td><%= Parent.find_by(id: f.parent_id).f_name %></td>
+						<td><%= Parent.find_by(id: f.parent_id).l_name %></td>
+						<td><%= button_to 'Destroy Parent' , family_path(f), :confirm => 'Are you sure?', method: :delete %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
