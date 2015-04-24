@@ -1,0 +1,17 @@
+<polymer-element name="kids-list">
+  <template>
+    <style>:host{display:block}
+</style>
+
+    <h2>Kids list</h2>
+    <div>
+	    <template repeat="{{kid in kids}}">
+	    	<p>First Name : {{kid.f_name}}</p>
+	    </template>
+	</div>
+
+    <core-ajax auto="" url="/temp/resource" handleas="json" response="{{kids}}" <="" core-ajax="">
+  </core-ajax></template>
+
+  <script>Polymer("kids-list",{});</script>
+</polymer-element>
