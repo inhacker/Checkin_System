@@ -29,10 +29,7 @@
 		<%= f.label :medicine %><br>
     <%= f.text_field :medicine %>
 	</div>
-	<div class ="field">
-		<%= f.label "kid"%>
-		<%= select_tag("kid", options_from_collection_for_select(Kid.all, :id, :f_name) ) %>
-	</div>
+	
 	
 	
 <% end %>

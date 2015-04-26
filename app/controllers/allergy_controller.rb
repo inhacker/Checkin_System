@@ -26,7 +26,7 @@ class AllergyController < ApplicationController
           
   def create
     @allergy = Allergy.new(allergy_params)
-    @kid = Kid.find(params[:kid])
+    
     
     @kid_in_progress=params[:kid_in_progress]
     
@@ -39,7 +39,7 @@ class AllergyController < ApplicationController
       else
         render('new')
       end
-      Allergic.create(:kid=> @kid, :allergy => @allergy)  
+     
   end
   
   # PATCH/PUT /allergy/1
